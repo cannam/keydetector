@@ -1,0 +1,20 @@
+
+CFLAGS		:= -Wall -Wextra -Werror -O3 -msse -msse2 -mfpmath=sse -ftree-vectorize -fPIC
+#CFLAGS		:= -Wall -Wextra -Werror -g -fPIC
+
+VAMPSDK_DIR	:= ../../vamp-plugin-sdk
+VAMPSDK_LIB     := $(VAMPSDK_DIR)/libvamp-sdk.a
+
+QM_DSP_DIR	:= ../../qm-dsp
+QM_DSP_LIB      := $(QM_DSP_DIR)/libqm-dsp.a
+
+KEYDETECTOR_DIR	:= ..
+KEYDETECTOR_LIB := $(KEYDETECTOR_DIR)/libkeydetector.a
+
+PLUGIN_LDFLAGS	:= -shared -Wl,-Bsymbolic -Wl,-z,defs -Wl,--version-script=vamp-plugin.map
+
+PLUGIN_EXT	:= .so
+
+
+include Makefile.inc
+
